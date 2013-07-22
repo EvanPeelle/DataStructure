@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf8">
+<head>
+	<link rel="stylesheet" href="lib/mocha/mocha.css">
+	<link rel="stylesheet" href="lib/runner/runner.css">
+	<script src="lib/mocha/mocha.js"></script>
+	<script src="lib/chai/chai.js"></script>
+	<script src="lib/runner/runner.js"></script>
+
+	<script type="text/javascript">
+		// Setup mocha
+		mocha.setup('bdd');
+
+		// Expose chai's expect method
+		var expect = chai.expect;
+
+		runner.variations = {
+			'src/functional': 'Functional',
+			'src/functional-shared': 'Functional (shared)',
+			'src/prototypal': 'Prototypal',
+			'src/pseudoclassical': 'Pseudoclassical'
+		};
+
+		runner.scripts = [
+			'queue.js',
+			'stack.js'
+		];
+
+		runner.specs = [
+			'spec/stackSpec.js',
+			'spec/queueSpec.js'
+		];
+	</script>
+</head>
+
+<div id="mocha">
+</div>
+
